@@ -81,6 +81,16 @@ class Cube(Primitive):
 		super(Cube, self).__init__()
 		self.call_list = G_OBJ_CUBE
 		
+class Cylinder(Primitive):
+	def __init__(self):
+		super(Cylinder, self).__init__()
+		self.call_list = G_OBJ_CYLINDER
+		
+class Tetrahedron(Primitive):
+	def __init__(self):
+		super(Tetrahedron, self).__init__()
+		self.call_list = G_OBJ_TETRAHEDRON
+		
 class HierarchicalNode(Node):
 	def __init__(self):
 		super(HierarchicalNode, self).__init__()

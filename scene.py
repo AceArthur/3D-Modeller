@@ -38,6 +38,8 @@ class Scene(object):
 		if shape == 'sphere': new_node = Sphere()
 		elif shape == 'cube': new_node = Cube()
 		elif shape == 'figure': new_node = SnowFigure()
+		elif shape == 'cylinder': new_node = Cylinder()
+		elif shape == 'tetrahedron': new_node = Tetrahedron()
 
 		self.add_node(new_node)
 

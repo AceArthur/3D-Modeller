@@ -63,10 +63,18 @@ class Interaction(object):
 			self.trigger('close')
 		elif key == 'r':
 			self.trigger('reset')
+		elif key == 'n':
+			self.trigger('nogrid', grid=False)
+		elif key == 'g':
+			self.trigger('nogrid', grid=True)
 		elif key == 's':
 			self.trigger('place', 'sphere', x, y)
 		elif key == 'c':
 			self.trigger('place', 'cube', x, y)
+		elif key == 'y':
+			self.trigger('place', 'cylinder', x, y)
+		elif key == 't':
+			self.trigger('place', 'tetrahedron', x, y)
 		elif key == GLUT_KEY_UP:
 			self.trigger('scale', up=True)
 		elif key == GLUT_KEY_DOWN:

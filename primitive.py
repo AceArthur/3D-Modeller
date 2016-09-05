@@ -1,15 +1,19 @@
 from OpenGL.GL import *
 from OpenGL.GLU import *
+from OpenGL.GLUT import *
+from math import sqrt
 
 G_OBJ_PLANE = 1
 G_OBJ_SPHERE = 2
 G_OBJ_CUBE = 3
+G_OBJ_CYLINDER = 4
+G_OBJ_TETRAHEDRON = 5
 
 def make_plane():
 	glNewList(G_OBJ_PLANE, GL_COMPILE)
 	glLineWidth(0.5)
 	glBegin(GL_LINES)
-	glColor4f(1, 1, 0.7, 0.1)
+	glColor4f(1, 1, 0.7, 0.0)
 	for i in xrange(29):
 		glVertex3f(-7.0 + 0.5 * i, 0, -7)
 		glVertex3f(-7.0 + 0.5 * i, 0, 7)
@@ -104,7 +108,29 @@ def make_cube():
 	glEnd()
 	glEndList()
 
+def make_cylinder():
+	glNewList(G_OBJ_CYLINDER, GL_COMPILE)
+	quad_c = gluNewQuadric()
+	gluCylinder(quad_c, 0.5, 0.5, 1.5, 30, 30)
+	gluDisk(quad_c, 0, 0.5, 30, 30)
+	gluDeleteQuadric(quad_c)
+	glEndList()	
+	
+def make_tetrahedron():
+	glNewList(G_OBJ_TETRAHEDRON, GL_COMPILE)
+	glutSolidTetrahedron()
+	glEndList()
+
 def init_primitives():
 	make_plane()
 	make_sphere()
 	make_cube()
+	make_cylinder()
+	make_tetrahedron()
+	
+def init_primitives_nogrid():
+	#make_plane()
+	make_sphere()
+	make_cube()
+	make_cylinder()
+	make_tetrahedron()

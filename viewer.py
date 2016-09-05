@@ -18,11 +18,19 @@ class Viewer(object):
 		self.init_scene()
 		self.init_interaction()
 		init_primitives()
+		
+	def init_nogrid(self):
+		self.init_interface()
+		self.init_opengl()
+		self.init_scene()
+		self.init_interaction()
+		init_primitives_nogrid()
 
 	def init_interface(self):
 		global winid
 		glutInit()
 		glutInitWindowSize(640, 480)
+		glutInitWindowPosition(100,100)
 		winid = glutCreateWindow("3D Modeller")
 		glutInitDisplayMode(GLUT_SINGLE|GLUT_RGBA)
 		glutDisplayFunc(self.render)
@@ -59,6 +67,16 @@ class Viewer(object):
 		sphere_node.translate(2,2,0)
 		#sphere_node.scale(4)
 		self.scene.add_node(sphere_node)
+		
+		cylinder_node = Cylinder()
+		cylinder_node.color_index = 3
+		cylinder_node.translate(0,-2,2)
+		self.scene.add_node(cylinder_node)
+		
+		tetrahedron_node = Tetrahedron()
+		tetrahedron_node.color_index = 4
+		tetrahedron_node.translate(2,-2,-2)
+		self.scene.add_node(tetrahedron_node)
 
 		hierarchical_node = SnowFigure()
 		hierarchical_node.translate(-2, 0, -2)
@@ -74,6 +92,7 @@ class Viewer(object):
 		self.interaction.register_callback('scale', self.scale)
 		self.interaction.register_callback('close', self.close)
 		self.interaction.register_callback('reset', self.reset)
+		self.interaction.register_callback('nogrid', self.nogrid)
 
 	def pick(self, x, y):
 		start, direction = self.get_ray(x, y)
@@ -152,7 +171,15 @@ class Viewer(object):
 		sys.exit()
 
 	def reset(self):
-		self.init_scene() 
+		self.init_scene()
+		
+	def nogrid(self, grid):
+		global winid
+		glutDestroyWindow(winid)
+		if grid:
+			self.__init__()
+		else:
+			self.init_nogrid()
 
 if __name__ == "__main__":
 	view = Viewer()
