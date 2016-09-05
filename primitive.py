@@ -7,59 +7,73 @@ G_OBJ_CUBE = 3
 
 def make_plane():
 	glNewList(G_OBJ_PLANE, GL_COMPILE)
+	glLineWidth(0.5)
 	glBegin(GL_LINES)
-	glColor3f(0, 0, 0)
-	for i in xrange(41):
-		glVertex3f(-10.0 + 0.5 * i, 0, -10)
-		glVertex3f(-10.0 + 0.5 * i, 0, 10)
-		glVertex3f(-10.0, 0, -10 + 0.5 * i)
-		glVertex3f(10.0, 0, -10 + 0.5 * i)
+	glColor4f(1, 1, 0.7, 0.1)
+	for i in xrange(29):
+		glVertex3f(-7.0 + 0.5 * i, 0, -7)
+		glVertex3f(-7.0 + 0.5 * i, 0, 7)
+		glVertex3f(-7.0, 0, -7 + 0.5 * i)
+		glVertex3f(7.0, 0, -7 + 0.5 * i)
+	for j in xrange(29):
+		glVertex3f(-7.0 + 0.5 * j, -7, 0)
+		glVertex3f(-7.0 + 0.5 * j, 7, 0)
+		glVertex3f(-7.0, -7 + 0.5 * j, 0)
+		glVertex3f(7.0, -7 + 0.5 * j, 0)
+	for k in xrange(29):
+		glVertex3f(0, -7.0 + 0.5 * k, -7)
+		glVertex3f(0, -7.0 + 0.5 * k, 7)
+		glVertex3f(0, -7.0, -7 + 0.5 * k)
+		glVertex3f(0, 7.0, -7 + 0.5 * k)
 
 	# Axes
 	glEnd()
+	
 	glLineWidth(5)
 
 	glBegin(GL_LINES)
-	glColor3f(0.5, 0.7, 0.5)
+	glColor3f(0.5, 0.9, 1.0)
 	glVertex3f(0.0, 0.0, 0.0)
-	glVertex3f(5, 0.0, 0.0)
+	glVertex3f(7, 0.0, 0.0)
 	glEnd()
 
 	glBegin(GL_LINES)
-	glColor3f(0.5, 0.7, 0.5)
+	glColor3f(0.5, 0.9, 1.0)
 	glVertex3f(0.0, 0.0, 0.0)
-	glVertex3f(0.0, 5, 0.0)
+	glVertex3f(0.0, 7, 0.0)
 	glEnd()
 
 	glBegin(GL_LINES)
-	glColor3f(0.5, 0.7, 0.5)
+	glColor3f(0.5, 0.9, 1.0)
 	glVertex3f(0.0, 0.0, 0.0)
-	glVertex3f(0.0, 0.0, 5)
+	glVertex3f(0.0, 0.0, 7)
 	glEnd()
 
+	glLineWidth(5)
+	
 	# Draw the Y.
 	glBegin(GL_LINES)
 	glColor3f(0.0, 0.0, 0.0)
-	glVertex3f(0.0, 5.0, 0.0)
-	glVertex3f(0.0, 5.5, 0.0)
-	glVertex3f(0.0, 5.5, 0.0)
-	glVertex3f(-0.5, 6.0, 0.0)
-	glVertex3f(0.0, 5.5, 0.0)
-	glVertex3f(0.5, 6.0, 0.0)
+	glVertex3f(0.0, 7.5, 0.0)
+	glVertex3f(0.0, 8.0, 0.0)
+	glVertex3f(0.0, 8.0, 0.0)
+	glVertex3f(-0.5, 8.5, 0.0)
+	glVertex3f(0.0, 8.0, 0.0)
+	glVertex3f(0.5, 8.5, 0.0)
 
 	# Draw the Z.
-	glVertex3f(-0.5, 0.0, 5.0)
-	glVertex3f(0.5, 0.0, 5.0)
-	glVertex3f(0.5, 0.0, 5.0)
-	glVertex3f(-0.5, 0.0, 6.0)
-	glVertex3f(-0.5, 0.0, 6.0)
-	glVertex3f(0.5, 0.0, 6.0)
+	glVertex3f(-0.5, 0.0, 7.5)
+	glVertex3f(0.5, 0.0, 7.5)
+	glVertex3f(0.5, 0.0, 7.5)
+	glVertex3f(-0.5, 0.0, 8.5)
+	glVertex3f(-0.5, 0.0, 8.5)
+	glVertex3f(0.5, 0.0, 8.5)
 
 	# Draw the X.
-	glVertex3f(5.0, 0.0, 0.5)
-	glVertex3f(6.0, 0.0, -0.5)
-	glVertex3f(5.0, 0.0, -0.5)
-	glVertex3f(6.0, 0.0, 0.5)
+	glVertex3f(7.5, 0.0, 0.5)
+	glVertex3f(8.5, 0.0, -0.5)
+	glVertex3f(7.5, 0.0, -0.5)
+	glVertex3f(8.5, 0.0, 0.5)
 
 	glEnd()
 	glLineWidth(1)

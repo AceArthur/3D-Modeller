@@ -1,6 +1,7 @@
 from collections import defaultdict
 from OpenGL.GLUT import *
 import trackball
+import sys
 
 
 class Interaction(object):
@@ -58,7 +59,11 @@ class Interaction(object):
 	def handle_keystroke(self, key, x, screen_y):
 		xSize, ySize = glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT)
 		y = ySize - screen_y
-		if key == 's':
+		if key == 'q':
+			self.trigger('close')
+		elif key == 'r':
+			self.trigger('reset')
+		elif key == 's':
 			self.trigger('place', 'sphere', x, y)
 		elif key == 'c':
 			self.trigger('place', 'cube', x, y)
