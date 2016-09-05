@@ -6,6 +6,7 @@ Implementation of 3D Modeller following the workflow of "500lines" with Python a
 (reference "https://github.com/aosabook/500lines")
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HOW TO USE:
 
 Left click on object to select and drag
 
